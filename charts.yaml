@@ -1,0 +1,15 @@
+# a list of extra repositories outside of the charts
+repositories:
+  paulczar: https://tech.paulcz.net/charts
+
+  rocketchat:
+    name: rocketchat
+    enabled: true
+    repository:
+      name: stable
+      url: https://kubernetes-charts.storage.googleapis.com
+    namespace: rocketchat
+    chart: stable/rocketchat
+    version: 2.0.2
+    values:
+      - charts/rocketchat/helmfile/base.yaml.gotmpl

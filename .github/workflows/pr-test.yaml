@@ -1,0 +1,31 @@
+name: Test Deploy using Helmfile
+
+on: pull_request
+
+jobs:
+  lint-test:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Run helmfile lint
+        uses: ./.github/actions/helmfile
+        with:
+          command: lint
+
+      - name: Create kind cluster
+        uses: helm/kind-action@v1.0.0-alpha.3
+        with:
+          install_local_path_provisioner: true
+          node_image: kindest/node:v1.15.7@sha256:e2df133f80ef633c53c0200114fce2ed5e1f6947477dbc83261a6a921169488d
+        env:
+          KUBECONFIG: ./envs/default/kubeconfig
+
+      - name: Run helmfile apply
+        uses: ./.github/actions/helmfile
+        with:
+          command: apply
+        env:
+          KUBECONFIG: ./envs/default/kubeconfig

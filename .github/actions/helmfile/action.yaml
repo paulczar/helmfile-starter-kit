@@ -1,0 +1,12 @@
+name: "Helmfile Apply"
+description: "Run Helmfile Apply"
+author: "Paul Czarkowski"
+branding:
+  color: blue
+  icon: anchor
+inputs:
+  action:
+    command: "either lint or apply"
+runs:
+  using: "node12"
+  main: "main.js"

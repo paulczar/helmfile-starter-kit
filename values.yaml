@@ -1,0 +1,12 @@
+# default values for all charts
+# We put everything under the `_` key
+# so that we don't interfere with chart
+# internal values.
+_:
+  ## enable ingress for all supported charts
+  ingress:
+    enabled: false
+
+  ## enable prometheus for all supported charts
+  prometheus:
+    enabled: false
