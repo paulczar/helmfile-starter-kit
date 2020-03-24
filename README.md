@@ -1,4 +1,4 @@
-# Helmfile Starter Pack
+# Helmfile Starter Kit
 
 ## About
 
@@ -38,6 +38,16 @@ This allows us to render in values from `base` and `environment` values, as well
 ## Structure
 
 ### Code Repo
+
+```console
+├── charts.yaml
+├── helmfile.yaml
+├── values.yaml
+├── charts
+│   └── rocketchat
+│       ├── helmfile
+│       │   └── base.yaml.gotmpl
+```
 
 **helmfile.yaml**:
 
@@ -100,6 +110,18 @@ ingress:
 ```
 
 ### Environment Repo
+
+```console
+├── envs
+│   ├── default
+│   │   ├── envs.sh
+│   │   ├── charts.yaml.gotmpl
+│   │   └── values.yaml.gotmpl
+│   └── ingress
+│       ├── envs.sh
+│       ├── charts.yaml.gotmpl
+│       └── values.yaml.gotmpl
+```
 
 As per gitops workflows its expected to have your environment specific values separate to your code. To enable this use environment variables to determine the environment name and path.
 
