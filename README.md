@@ -27,7 +27,7 @@ These are values files that are loaded before the helmfile itself is processed. 
 
 ### 2. Environment values
 
-These values are loaded after the base values that can be used to customize each environment. However rather than naming each environment inside helmfile we externalize this to a values file in your environment directory/repo.
+These values are loaded after the base values that can be used to customize each environment. Usually in Helmfile you specify the environments and their values in the `helmfile.yaml` however we externalize this to a values file in your environment directory/repo, as far as Helmfile is concerned, the environment currently loaded (via `envs.sh` see below for details) is considered the `default` environment. This effectively fully decouples the environments from the code.
 
 ### 3. Helm Release Values
 
