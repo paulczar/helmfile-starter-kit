@@ -2,6 +2,7 @@
 repositories:
   paulczar: https://tech.paulcz.net/charts
 
+charts:
   rocketchat:
     name: rocketchat
     enabled: true
